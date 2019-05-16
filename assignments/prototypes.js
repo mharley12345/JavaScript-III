@@ -9,23 +9,23 @@
      this.createdAt = stats.createdAt;
      this.name = stats.name;
      this.dimensions = stats.dimensions;
-   
+   }
    GameObject.prototype.destroy = function () {
      return `${this.name}
                          was removed from the game.`
-   }};
+   };
 
    function CharacterStats(stats){
    GameObject.call(this, stats); 
      this.healthPoints = stats.healthPoints;
 
-   
+   }
     CharacterStats.prototype = Object.create(GameObject.prototype);
      CharacterStats.prototype.takeDamage = function () {
 
        return `${this.name} took damage.`
      
-   }};
+   };
 
     function Humanoid(stats) {
      CharacterStats.call(this,stats);
@@ -34,12 +34,16 @@
      this.language = stats.language;
    
    
-   Humanoid.prototype = Object.create(CharacterStats.prototype);
-   Humanoid.prototype.greet = function() {
-     return `${this.name} offers a greeting in ${this.language}.`
+  
+   
      
-     
-    }};
+    }
+    Humanoid.prototype = Object.create(CharacterStats.prototype);
+    Humanoid.prototype.greet = function() {
+      return `${this.name} offers a greeting in ${this.language}.`
+      
+  
+  };
 
 
 
