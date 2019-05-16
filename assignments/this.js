@@ -11,27 +11,11 @@
 
 // Principle 1
 
-// code example for Window Binding        
-
-//  window.setInterval(function(time){
-//    time=1000
-//    console.log("It Has Been 10 Seconds")   
-//   window.setInterval(30)
-//  })
-
-//  return time
-
-// function wait(){                      
-//   for(i=0;i>=10;i++)           
-//   setInterval(function() {
-//     alert("Message to alert every 5 seconds");
-// }, 5000);                      
-
-
-
-
-
-
+//Window/Global
+// function myName(name) {
+  // console.log(this);
+// }
+// myName('Mike');
 
 
 
@@ -44,20 +28,20 @@
 // code example for Implicit Binding
 
 
-var MyObject = function () {
-    this.name = 'MyObjectName';
-    this.myProperty = 'property';
-
-
-
-};
-
-   MyObject.prototype.doStuff = function (action){
-       console.log(this.name + ' is ' + action +'!');
-   }
-     var obj = new MyObject();
-     obj.doStuff('awesome');
-
+// var MyObject = function () {
+    // this.name = 'MyObjectName';
+    // this.myProperty = 'property';
+// 
+// 
+// 
+// };
+// 
+  //  MyObject.prototype.doStuff = function (action){
+      //  console.log(this.name + ' is ' + action +'!');
+  //  }
+    //  var obj = new MyObject();
+    //  obj.doStuff('awesome');
+// 
 // Not my functon. I got it off the internet
 
 
@@ -65,8 +49,22 @@ var MyObject = function () {
 // Principle 3
 
 // code example for New Binding
+function angryProgrammer(friend) {
+  this.statement ='Grrrr';
+  this.friend= friend;
+  this.speak = function(){
+    console.log(this.statement + this.friend);
+    console.log(this);
+  };
+  
+}
+const mike = new angryProgrammer('Bill');
+const bill  = new angryProgrammer('Mike');
 
+//mike.speak();
+//bill.speak();
 
 // Principle 4
+mike.speak.call(bill); bill.speak.apply(mike);
 
 // code example for Explicit Binding
